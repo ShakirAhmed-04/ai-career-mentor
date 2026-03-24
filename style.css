@@ -50,12 +50,16 @@ main {
   max-width: 1100px;
   margin: 40px auto;
   padding: 0 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
 /* ===== SECTIONS / CARDS ===== */
+.welcome-card{
+  grid-column: 1/ -1;
+  background: linear-gradient(135deg, #1e293b, #312e81);
+}
 section {
   background-color: #1e293b;
   padding: 24px;
@@ -85,6 +89,7 @@ section ul {
 section ul li {
   background-color: #334155;
   color: #e2e8f0;
+  width: 48%;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -97,7 +102,7 @@ button {
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
-  cursor: text;
+  cursor: pointer;
   font-size: 0.95rem;
   margin-top: 12px;
 }
@@ -120,4 +125,42 @@ footer {
   font-size: 0.85rem;
   border-top: 1px solid #334155;
   margin-top: 40px;
+}
+/* ===== RESPONSIVE — TABLET ===== */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  nav ul {
+    gap: 16px;
+  }
+}
+
+/* ===== RESPONSIVE — MOBILE ===== */
+@media (max-width: 480px) {
+  nav h1 {
+    font-size: 1.2rem;
+  }
+
+  section {
+    padding: 16px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+.proress-bar{
+  background-color: #6366f1;
+  height: 100%;
+  width: 0%;
+  border-radius: 20px;
+  transition: width 0.3s ease;
 }
